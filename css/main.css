@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+    --gutter: 30px;
+    --size-small: 26;
+    --size-big: 36;
+    --depth: 4000px;
+    --transition: 0.75s cubic-bezier(0.75, 0.5, 0, 1);
+}
+
+@font-face {
+    font-family: raleway_c;
+    src: url(../assets/fonts/raleway-v22-cyrillic-300.woff2);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: raleway_c;
+    src: url(../assets/fonts/raleway-v22-cyrillic-100.woff2);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: marske;
+    src: url(../assets/fonts/Marske.ttf);
+    font-weight: 100;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: calc(var(--index) * 0.8);
+    font-weight: 300;
+    font-family: raleway_c, sans-serif;
+    line-height: 1.75;
+    height: var(--depth);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 100;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    perspective: 1500px;
+}
+
+.gallery {
+    transform-style: preserve-3d;
+    height: 100%;
+}
+
+.frame {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition), opacity 0.75s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.frame h2 {
+    text-align: center;
+    font-size: calc(var(--index) * 3.3);
+    width: min-content;
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: marske, sans-serif;
+    letter-spacing: 12px;
+
+}
+
+.frame-media {
+    position: relative;
+    width: calc(var(--index) * var(--size-small));
+    height: calc(var(--index) * var(--size-big));
+    background-position: center;
+    background-size: cover;
+}
+
+.frame-media_left {
+    right: calc(var(--size-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame-media_right {
+    left: calc(var(--size-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame_bg {
+    background-color: rgb(0 0 0 / 0.87);
+}
+
+video.frame-media {
+    width: calc(var(--index) * var(--size-big));
+    height: calc(var(--index) * var(--size-small));
+}
+
+video.frame-media_right {
+    left: calc(var(--size-big) / 2 * var(--index) + var(--gutter));
+}
+
+video.frame-media_left {
+    right: calc(var(--size-big) / 2 * var(--index) + var(--gutter));
+}
+
+.text-right>* {
+    position: relative;
+    left: 20vw;
+}
+
+.text-left>* {
+    position: relative;
+    right: 20vw;
+}
+
+.frame h3 {
+    font-size: calc(var(--index) * 2);
+    text-transform: uppercase;
+    font-family: marske, sans-serif;
+    letter-spacing: 8px;
+}
+
+.frame p {
+    max-width: 30vw;
+    margin-top: 5vh;
+    letter-spacing: 4px;
+}
+
+.end {
+    font-size: calc(var(--index) * 3.3);
+}
